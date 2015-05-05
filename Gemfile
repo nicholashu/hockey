@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 gem 'rails'
 gem 'devise'
 # Use Postgres as the database for Active Record
-gem 'pg'
+gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'sass-rails', '~> 4.0.3'
@@ -30,7 +30,7 @@ gem 'spring',        group: :development
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-  gem 'rails_12factor'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
@@ -41,5 +41,5 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 group :production do
   gem 'pg'
-
+  gem 'rails_12factor'
 end
