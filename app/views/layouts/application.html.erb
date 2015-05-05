@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>Whistlers</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <!--[if lt IE 9]><script src="js/html5.js"></script><![endif]-->
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+   <%=   stylesheet_link_tag 'landing'  %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="container-fluid">
+    <nav class="navbar navbar-default nogutter" role="navigation">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <%= link_to root_path, class: 'navbar-brand' do %>
+            <%= image_tag 'logo.png', class: 'logo' %>
+          <% end %>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <%=  link_to "Listings", :controller => :listings, :action => :index %>
+            </li>
+            <li>
+              <%= link_to 'New', new_listing_path %>
+            </li>
+             <% if user_signed_in? %>
+             <li>
+              Logged in as <strong><%= current_user.email %></strong>
+              </li>
+              <li>
+              <%= link_to 'Edit profile', edit_user_registration_path %> 
+              </li>
+              <li>
+              <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+            </li>
+            <% else %>
+            <li>
+            <%= link_to "Sign up", new_user_registration_path  %> 
+            </li>
+            <li>
+            <%= link_to "Login", new_user_session_path  %>
+            </li>
+            <% end %>
+            <li> 
+            <a href="#">c</a>
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+<% if notice %>
+  <p class="alert alert-success"><%= notice %></p>
+<% end %>
+<% if alert %>
+  <p class="alert alert-danger"><%= alert %></p>
+<% end %>
+    <%= yield %>
+  </div>
+</body>
+        <footer>
+            <div class="wrap">
+                <div class="logo">
+                    <a href="#">
+                        <img src="<%= asset_path 'logo-min.png' %>" width="64" height="52" alt="Whistlers Logo">
+                    </a>
+                </div><!-- logo -->
+                <div class="istore"><a href="#">Available in Apple Store</a></div>
+                <div class="copy">
+                    <p>Copyright &copy; 2015 <a href="#"></a></p>
+                </div><!-- copy -->
+                <div class="social">
+                    <ul class="clearfix">
+                        <li><a class="social-facebook" href="#" title="facebook">facebook</a></li>
+                        <li><a class="social-twitter" href="#" title="twitter">twitter</a></li>
+                        <li><a class="social-googleplus" href="#" title="google plus">google plus</a></li>
+                    </ul>
+                </div><!--social -->
+            </div><!-- wrap -->
+        </footer>
+    </section><!-- main -->
+    <script src="<%= asset_path 'jquery.js' %>"></script>
+    <script src="<%= asset_path 'library.js' %>"></script>
+    <script src="<%= asset_path 'script.js' %>"></script>
+    <script src="<%= asset_path 'retina.js' %>"></script>
+</html>
