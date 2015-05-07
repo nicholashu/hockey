@@ -3,8 +3,13 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails'
+<<<<<<< HEAD
 gem 'devise'
 # Use Postgres as the database for Active Record
+=======
+
+# Use sqlite3 as the database for Active Record
+>>>>>>> nodevise
 gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'bootstrap-sass', '~> 3.2.0'
