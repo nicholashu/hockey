@@ -37,6 +37,12 @@
                  Logged in as <strong><%= current_user.email %></strong>
             </li>
             <li>
+              <%= link_to 'New', new_listing_path %>
+            <li> 
+            <li>
+              <%= link_to "Listings", all_listings_path %>
+            </li>
+            <li>
                <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> 
             </li>
             <li>
@@ -50,14 +56,6 @@
               <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
               </li>
             <% end %>
-            <li>
-              <%= link_to "Listings", all_listings_path %>
-            </li>
-            <li>
-              <%= link_to 'New', new_listing_path %>
-            <li> 
-            <a href="#">c</a>
-            </li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
