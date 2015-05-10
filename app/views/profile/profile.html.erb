@@ -1,0 +1,7 @@
+<br>
+<%= image_tag gravatar_url(current_user) %><br>
+<%= current_user.name %>
+<br>
+<%= current_user.email %>
+<br>
+<p>Rating: <%= current_user.rating.to_s %></p>

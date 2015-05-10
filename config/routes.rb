@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :listings
   resources :landing
 
+  get "myprofile" => "profile#profile", :as => :myprofile
+
   root 'landing#index'
 
   get "/all_listings" => 'listings#index'

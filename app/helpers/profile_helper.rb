@@ -1,4 +1,4 @@
-module ApplicationHelper
+module ProfileHelper
 
 	def gravatar_url(user)
     		gravatar_id = Digest::MD5::hexdigest(user.email).downcase
