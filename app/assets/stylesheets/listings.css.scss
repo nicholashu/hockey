@@ -1,4 +1,10 @@
-
+.take-button {
+	float: right;
+	padding: 2;
+	border-style: solid;
+    	border-width: 1px;
+    	min-width: 162px;
+}
 
 .logo {
   height: $navbar-height - (2 * $navbar-padding-vertical);
