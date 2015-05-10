@@ -13,6 +13,11 @@
     <strong>Price:</strong>
     <%= number_to_currency(@listing.price) %>
   </p>
+  <p>
+  <strong>Created by:</strong>
+  <%= users_name(@listing.user_id) %>
+  </p>
+  <br>
 <% end %>
 
 <%= link_to 'Edit', edit_listing_path(@listing), class: 'btn btn-default' %>
