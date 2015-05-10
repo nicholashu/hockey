@@ -34,7 +34,8 @@
           <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
             <li>
-                <a href=""> Logged in as <strong><%= current_user.name %></strong></a>
+                <a> Logged in as <strong><%= current_user.name %></strong></a>
+                <li><%= link_to "Profile", myprofile_path %></li>
             </li>
             <li>
               <%= link_to 'New', new_listing_path %>
