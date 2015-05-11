@@ -20,5 +20,12 @@
   <br>
 <% end %>
 
-<%= link_to 'Edit', edit_listing_path(@listing), class: 'btn btn-default' %>
+ 
+
+<% if @listing.created_by == current_user.id %>
+  <%= link_to 'Edit', edit_listing_path(@listing), class: 'btn btn-default' %>
+<% else %>
+ <%= link_to 'Take Job', @listing, method: :assign_job, class: 'btn btn-default' %>
+
+<% end %>
 <%= link_to 'Destroy', @listing, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>

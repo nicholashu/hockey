@@ -22,4 +22,5 @@
       Listing.create!(title:  "Example",
              description: "This is sample text",
              price:  50,
+             created_by: 1,
            )

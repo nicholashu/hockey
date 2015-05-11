@@ -63,10 +63,7 @@ class ListingsController < ApplicationController
     end
   end
 
-  def assign_job
-    jobid = Listing.id
 
-  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
