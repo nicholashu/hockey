@@ -2,22 +2,39 @@
   <% if @listings.empty? %>
     No listings to display! Go <%= link_to 'create one', new_listing_path %>.
   <% else %>
-    <table class="table table-striped">
-      <tbody>
+
+    
         <% @listings.each do |listing| %>
-          <tr>
-            <td><%= link_to listing.title, listing %></td>
-            <td class="text-right">
-              <% if listing.price %>
+       
+
+        <div class="card radius shadowDepth1">
+          <div class="card__content card__padding">
+            <div class="card__meta">
+              <%= link_to listing.title, listing %>
+              <time>1<%= listing.updated_at %></time>
+            </div>
+              <article class="card__article">
+                <h2><a href="#"><%= listing.title %></a></h2>
+                <p><%= listing.description %></p>
+                <br>
                 <%= number_to_currency(listing.price) %>
-              <% end %>
-            </td>
-            <td>
-            <% if listing.created_by == current_user.id %>
+              </article>
+
+          </div>
+            <div class="card__action">
+              <div class="card__author">
+                  <%= image_tag user_info(listing.created_by).gravatar_url %>
+                <div class="card__author-content">
+                    By <%= link_to users_name(listing.created_by), myprofile_path %>
+                </div>
+                              <div class="take-button"><%= link_to 'Take Job', @listing, method: :assign_job, class: 'green-sea-flat-button' %></div>
+              </div>
+          </div>
+          
+        </div>
+
                
-          </tr>
-        <% end %>
+
           <% end %>
-      </tbody>
-    </table>
+
   <% end %>
