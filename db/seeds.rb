@@ -34,5 +34,5 @@
         Listing.create!(venue:  "UWA Field #1",
              gamedate: "2015-03-21",
              gametime:  "2015-02-21 9:00:00",
-             created_by: 2,
+             created_by: 3,
            )
