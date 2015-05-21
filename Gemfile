@@ -5,6 +5,8 @@ source 'https://rubygems.org'
 gem 'rails'
 # devise for users
 gem 'devise'
+gem 'gravtastic'
+
 # Use SCSS for stylesheets
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'sass-rails', '~> 4.0.3'
