@@ -5,6 +5,11 @@ module ListingsHelper
 		name = name.name  	
   	end
 
+  	def get_user(user)
+  		user = User.find(user)
+  	end
+
+
 	  def assign_job(user)
 		respond_to do |format|
 	      if @listing.update(listing_params)

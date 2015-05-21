@@ -1,12 +1,12 @@
 class Listing < ActiveRecord::Base
   belongs_to :user
-  validates :title, presence: true
-  validates :description, presence: true
+  validates :venue, presence: true
+  validates :gamedate, presence: true
+  validates :gametime, presence: true
 
   #adds userid to each listing
   def set_user!(user)
     self.created_by = user.id
-
     self.save!
   end
 
