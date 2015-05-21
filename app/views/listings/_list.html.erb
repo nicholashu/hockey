@@ -1,10 +1,10 @@
-
-  <% if @listings.empty? %>
+<% if @listings.empty? %>
     No listings to display! Go <%= link_to 'create one', new_listing_path %>.
   <% else %>
 
     
         <% @listings.each do |listing| %>
+<<<<<<< HEAD
        
 
         <div class="card radius shadowDepth1">
@@ -18,14 +18,32 @@
                 <p><%= listing.description %></p>
                 <br>
                 <%= number_to_currency(listing.price) %>
+=======
+        <div class="card radius shadowDepth1">
+          <div class="card__content card__padding">
+            <div class="card__meta">
+              
+            </div>
+              <article class="card__article">
+                <h2><%= link_to listing.venue, listing %></h2>
+                <p><b>Date: </b><%= listing.gamedate.strftime("%e  %B %Y") %></p>
+                <p><b>Time: </b><%= listing.gametime.to_formatted_s(:time) %></p>
+
+>>>>>>> production
               </article>
 
           </div>
             <div class="card__action">
               <div class="card__author">
+<<<<<<< HEAD
                   <%= image_tag user_info(listing.created_by).gravatar_url %>
                 <div class="card__author-content">
                     By <%= link_to users_name(listing.created_by), myprofile_path %>
+=======
+              <img src="<%= gravatar_url(get_user(listing.created_by)) %>" alt="user">
+                <div class="card__author-content">
+                    Created by <%= link_to users_name(listing.created_by), myprofile_path %>
+>>>>>>> production
                 </div>
                               <div class="take-button"><%= link_to 'Take Job', @listing, method: :assign_job, class: 'green-sea-flat-button' %></div>
               </div>
@@ -33,7 +51,11 @@
           
         </div>
 
+<<<<<<< HEAD
                
+=======
+               <br>
+>>>>>>> production
 
           <% end %>
 

@@ -5,11 +5,19 @@ module ListingsHelper
 		name = name.name  	
   	end
 
+<<<<<<< HEAD
   	#
 	def user_info(user)
 	  	user  = User.find(user)
   	end
 
+=======
+  	def get_user(user)
+  		user = User.find(user)
+  	end
+
+
+>>>>>>> production
 	  def assign_job(user)
 		respond_to do |format|
 	      if @listing.update(listing_params)

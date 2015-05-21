@@ -1,9 +1,26 @@
-<br>
-<%= image_tag gravatar_url(current_user) %><br>
-<%= current_user.name %>
-<br>
-<%= current_user.email %>
-<br>
- <p> <%="Rating:  #{current_user.rating.to_s}" unless current_user.rating == nil %></p>
 
-<%= link_to 'Edit profile', edit_user_registration_path%> 
+<br>
+<div class="card radius shadowDepth1">
+          <div class="card__content card__padding">
+            <div class="card__meta">
+              
+            </div>
+              <article class="card__article">
+             <h2> <%= image_tag gravatar_url(current_user) %>
+                <%= current_user.name %></h2>
+                <p><%= current_user.email %></p>
+                <%="Rating:  #{current_user.rating.to_s}" unless current_user.rating == nil %></p>
+              </article>
+
+          </div>
+            <div class="card__action">
+              <div class="card__author">
+                <div class="card__author-content">
+                </div>
+                <div class="take-button"><%= link_to 'Edit profile', edit_user_registration_path%></div>
+              </div>
+          </div>
+          
+        </div>
+
+               <br>

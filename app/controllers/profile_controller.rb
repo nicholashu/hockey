@@ -1,7 +1,7 @@
 class ProfileController < ApplicationController
 
  def profile
-   @account = current_account
+  current_account = @account
  end
  
 end

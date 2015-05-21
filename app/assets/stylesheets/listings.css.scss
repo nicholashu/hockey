@@ -1,9 +1,25 @@
 @import 'http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css';
 @import 'http://fonts.googleapis.com/css?family=Roboto:700,400';
 
+<<<<<<< HEAD
 .take-button {
 	float: right;
 	padding-top: 5px;
+=======
+.navbar-default {
+  background-color: #16a085;
+  border-color: #16a085;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: white;
+}
+
+.take-button {
+	float: right;
+	padding-top: 5px;
+	margin-right: 8px;
+>>>>>>> production
 }
 
 .green-sea-flat-button {
@@ -122,6 +138,11 @@ h2 {
 .card {
 	background-color: #fff;
 	margin-bottom: 1.6rem;
+<<<<<<< HEAD
+=======
+	max-width: 500px;
+	margin: 0 auto;
+>>>>>>> production
 }
 
 .card__padding {
@@ -177,7 +198,11 @@ h2 {
 
 	.card__author img{
 		border-radius: 50%;
+<<<<<<< HEAD
 		margin-right: 0.6em;
+=======
+		margin-right: 0.2em;
+>>>>>>> production
 		max-width: 40px;
 	}
 
@@ -265,4 +290,8 @@ h2 {
 	.twitter:hover,
 	.googleplus:hover {
 		color: #eee;
+<<<<<<< HEAD
 	}
+=======
+	}
+>>>>>>> production
