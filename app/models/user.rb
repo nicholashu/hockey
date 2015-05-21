@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
-  include Gravtastic
-  gravtastic
+
   rolify
 
   # Include default devise modules. Others available are:
