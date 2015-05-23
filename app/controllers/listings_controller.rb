@@ -53,6 +53,10 @@ class ListingsController < ApplicationController
     end
   end
 
+  def take
+
+  end
+
   # DELETE /listings/1
   # DELETE /listings/1.json
   def destroy

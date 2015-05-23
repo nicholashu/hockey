@@ -10,8 +10,14 @@ def users_name(user)
 		name = name.name  	
 end
 
-def user_info(user)
-	  	user  = User.find(user)
- end
+def is_creator?(listing)
+	creator = Listing.find(listing)
+	creator = Listing.created_by
+		if creator == @current_user
+			return true
+		else
+			return false
+		end
+end
  
 end

@@ -25,7 +25,11 @@
             <p>Created by <%= link_to users_name(listing.created_by), profile_index_path %></p>
             </div>
           </div>
-          <div class="take-button"><%= link_to 'Take Job', @listing, method: :assign_job, class: 'green-sea-flat-button' %></div>
+          <% if listing.created_by == current_user.id %>
+          <div class="take-button"><%= link_to 'Edit Job', @listing, method: :assign_job, class: 'pomegranate flat-button' %></div>
+          <%else%>
+          <div class="take-button"><%= link_to 'Take Job', @listing, method: :assign_job, class: 'green-sea flat-button' %></div>
+          <%end%>
       </div>
       </div>
     </div>
