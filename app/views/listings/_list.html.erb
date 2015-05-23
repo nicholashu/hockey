@@ -29,16 +29,25 @@
             <div class="card__author-content">
             <p>Created by <%= link_to users_name(listing.created_by), profile_index_path %></p>
             </div>
+
           </div>
-          <% if is_creator?(listing,  current_user) %>
-          <div class="take-button"><%= link_to 'Edit Job', listing, class: 'pomegranate flat-button' %></div>
+          <% if is_booked?(listing)%>
+              <%if is_booker?(listing, current_user) %>
+                <div class="take-button"><%= link_to 'Confirmed', listing, class: 'pomegranate flat-button' %></div>
+              <% elsif is_creator?(listing,  current_user) %>
+                <div class="take-button"><%= link_to 'Edit Job', listing, class: 'belize flat-button' %></div>
+              <%else%>
+                  <div class="take-button"><%= link_to 'Unavailable', listing, class: 'midnight-blue flat-button' %></div>               
+            <%end%>
           <%else%>
-          <div class="take-button"><%= link_to 'Take Job', listing , class: 'green-sea flat-button' %></div>
+          <div class="take-button"><%= link_to "Reserve", reserve_listing_path(listing.id), :method => :put, class: 'green-sea flat-button' %></div>
           <%end%>
       </div>
+
       </div>
     </div>
   <br>
   <% end %>
 
 <% end %>
+

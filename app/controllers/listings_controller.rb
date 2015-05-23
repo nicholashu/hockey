@@ -1,13 +1,8 @@
 class ListingsController < ApplicationController
-  before_action :set_listing, only: [:show, :edit, :update, :destroy, :take]
+  before_action :set_listing, only: [:show, :edit, :update, :destroy, :reserve]
 
   # GET /listings
   # GET /listings.json
-
-def take
-
-end
-
 
   def index
     @listings = Listing.order("created_at desc")
@@ -28,6 +23,15 @@ end
   def edit
   end
 
+ def reserve
+      @listing = Listing.find(params[:id])
+      @listing.update_attributes(:taken_by => current_user.id)
+      respond_to do |format|
+      format.html { redirect_to @listing, notice: 'Listing was successfully updated.' }
+      format.json { render :show, status: :created, location: @listing }
+    end
+end
+
   # POST /listings
   # POST /listings.json
   def create
@@ -45,12 +49,13 @@ end
     end
   end
 
+
   # PATCH/PUT /listings/1
   # PATCH/PUT /listings/1.json
   def update
     respond_to do |format|
       if @listing.update(listing_params)
-        format.html { redirect_to @listing, notice: 'Listing was successfully updated.' }
+        format.html { redirect_to @listing, notice: 'Listing was successfully taken.' }
         format.json { render :show, status: :ok, location: @listing }
       else
         format.html { render :edit }
@@ -59,16 +64,13 @@ end
     end
   end
 
-  def take
-
-  end
 
   # DELETE /listings/1
   # DELETE /listings/1.json
   def destroy
     @listing.destroy
     respond_to do |format|
-      format.html { redirect_to root_path, notice: 'Listing was successfully destroyed.' }
+      format.html { redirect_to @listing, notice: 'Listing was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -83,6 +85,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
-      params.require(:listing).permit(:venue, :gamedate, :gametime)
+      params.require(:listing).permit(:venue, :gamedate, :gametime, :taken_by)
     end
 end
