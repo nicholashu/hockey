@@ -7,6 +7,9 @@
   <div class="card radius shadowDepth1">
     <div class="card__content card__padding">
       <div class="card__meta">
+      <% if current_user.admin == true %>
+       <div class="delete"><%= button_to "Delete", listing, :method => :delete, class: ' take-button'  %></div>
+      <%end%>
       </div>
       <article class="card__article">
       <h2><%= link_to listing.venue, listing %></h2>
@@ -26,7 +29,7 @@
             </div>
           </div>
           <% if listing.created_by == current_user.id %>
-          <div class="take-button"><%= link_to 'Edit Job', @listing, method: :assign_job, class: 'pomegranate flat-button' %></div>
+          <div class="take-button"><%= link_to 'Edit Job', listing, class: 'pomegranate flat-button' %></div>
           <%else%>
           <div class="take-button"><%= link_to 'Take Job', @listing, method: :assign_job, class: 'green-sea flat-button' %></div>
           <%end%>

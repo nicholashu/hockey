@@ -44217,3 +44217,34 @@ ActionController::RoutingError (No route matches [GET] "/retina.js"):
   Rendered /usr/local/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.7ms)
   Rendered /usr/local/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
   Rendered /usr/local/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (130.7ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'example@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("name", "email", "encrypted_password", "admin", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Example User"], ["email", "example@example.com"], ["encrypted_password", "$2a$10$LacZnR6wLCXjSbQMsSXAHOkvha8isup812HEOcVqIISZ9VkKFmViu"], ["admin", "t"], ["created_at", "2015-05-23 16:39:19.325553"], ["updated_at", "2015-05-23 16:39:19.325553"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'test@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("name", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "test User"], ["email", "test@example.com"], ["encrypted_password", "$2a$10$vhDgfqMOBjrXrpxT3E8fJ.ZNE3jje00QVJPa7D/qHL9oBJI6tU6ju"], ["created_at", "2015-05-23 16:39:19.389799"], ["updated_at", "2015-05-23 16:39:19.389799"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'nick@nickhu.info' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'example123@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("name", "email", "encrypted_password", "admin", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Example User"], ["email", "example123@example.com"], ["encrypted_password", "$2a$10$DNYuvkbHbFtbu3wQEvPmZOqQWIWQBmF41.PsRqgr3o4rveNf92JiG"], ["admin", "t"], ["created_at", "2015-05-23 16:39:58.413766"], ["updated_at", "2015-05-23 16:39:58.413766"]]
+  [1m[36m (5.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'test123@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("name", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "test User"], ["email", "test123@example.com"], ["encrypted_password", "$2a$10$VDD68GtYmYDjimXA/.3DbeODZi4pX.AjfahrrO.XBbJTLu8KLXGqK"], ["created_at", "2015-05-23 16:39:58.486123"], ["updated_at", "2015-05-23 16:39:58.486123"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'nick234@nickhu.info' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Nick Hu"], ["email", "nick234@nickhu.info"], ["encrypted_password", "$2a$10$czQOzdXPLp88VHJTfOZE3Om227Vgximx.m1m7UyRWZlGivP6l7CJS"], ["created_at", "2015-05-23 16:39:58.556677"], ["updated_at", "2015-05-23 16:39:58.556677"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "listings" ("venue", "gamedate", "gametime", "created_by", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["venue", "UWA Field #2"], ["gamedate", "2015-05-21"], ["gametime", "2000-01-01 19:00:00.000000"], ["created_by", 1], ["created_at", "2015-05-23 16:39:58.569140"], ["updated_at", "2015-05-23 16:39:58.569140"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "listings" ("venue", "gamedate", "gametime", "created_by", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["venue", "UWA Field #1"], ["gamedate", "2015-03-21"], ["gametime", "2000-01-01 09:00:00.000000"], ["created_by", 3], ["created_at", "2015-05-23 16:39:58.571691"], ["updated_at", "2015-05-23 16:39:58.571691"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m

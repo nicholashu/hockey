@@ -1,18 +1,18 @@
  User.create!(name:  "Example User",
-             email: "example@example.com",
+             email: "example123@example.com",
              password:              "iamsmart",
              password_confirmation: "iamsmart",
              admin: true,
            )
 
     User.create!(name:  "test User",
-             email: "test@example.com",
+             email: "test123@example.com",
              password:              "iamsmart",
              password_confirmation: "iamsmart",
              admin: false,
            )
         User.create!(name:  "Nick Hu",
-             email: "nick@nickhu.info",
+             email: "nick234@nickhu.info",
              password:              "iamsmart",
              password_confirmation: "iamsmart",
              admin: false,
