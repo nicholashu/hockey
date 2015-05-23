@@ -25,7 +25,7 @@
             <span class="icon-bar"></span>
           </button>
           <%= link_to root_path, class: 'navbar-brand' do %>
-            <h2>TITLE</h2>
+            <h2><%= yield(:title) %></h2>
           <% end %>
         </div>
 
