@@ -18,12 +18,12 @@
               <div class="card__author">
               <img src="<%= gravatar_url(get_user(@listing.created_by)) %>" alt="user">
           <div class="card__author-content">
-                    Created by <%= link_to users_name(@listing.created_by), myprofile_path %>
+            Created by <%= link_to users_name(@listing.created_by), myprofile_path %>
                 </div>
+            <% if is_creator %>
              <%= link_to 'Edit', edit_listing_path(@listing), class: 'btn btn-default take-button' %>   
-
-<%= link_to 'Destroy', @listing, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger take-button' %>
-
+              <%= link_to 'Destroy', @listing, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger take-button' %>
+              <%end%>
               </div>
           </div>
           

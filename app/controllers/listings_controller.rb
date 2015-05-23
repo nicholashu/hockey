@@ -1,10 +1,15 @@
 class ListingsController < ApplicationController
-  before_action :set_listing, only: [:show, :edit, :update, :destroy]
+  before_action :set_listing, only: [:show, :edit, :update, :destroy, :take]
 
   # GET /listings
   # GET /listings.json
-  def index
 
+def take
+
+end
+
+
+  def index
     @listings = Listing.order("created_at desc")
   end
 
