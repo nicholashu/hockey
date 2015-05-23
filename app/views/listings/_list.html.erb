@@ -33,7 +33,7 @@
           <% if is_creator?(listing,  current_user) %>
           <div class="take-button"><%= link_to 'Edit Job', listing, class: 'pomegranate flat-button' %></div>
           <%else%>
-          <div class="take-button"><%= link_to 'Take Job', listings_take_path, class: 'green-sea flat-button' %></div>
+          <div class="take-button"><%= link_to 'Take Job', listing , class: 'green-sea flat-button' %></div>
           <%end%>
       </div>
       </div>
