@@ -31,11 +31,11 @@
             </div>
 
           </div>
-          <% if is_booked?(listing)%>
+          <% if is_creator?(listing,  current_user) %>
+                <div class="take-button"><%= link_to 'Edit Job', listing, class: 'belize flat-button' %></div>
+          <% elsif is_booked?(listing)%>
               <%if is_booker?(listing, current_user) %>
                 <div class="take-button"><%= link_to 'Confirmed', listing, class: 'pomegranate flat-button' %></div>
-              <% elsif is_creator?(listing,  current_user) %>
-                <div class="take-button"><%= link_to 'Edit Job', listing, class: 'belize flat-button' %></div>
               <%else%>
                   <div class="take-button"><%= link_to 'Unavailable', listing, class: 'midnight-blue flat-button' %></div>               
             <%end%>
