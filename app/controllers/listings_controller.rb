@@ -84,6 +84,5 @@ end
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
       params.require(:listing).permit(:venue, :gamedate, :gametime)
-      params.permit()
     end
 end
