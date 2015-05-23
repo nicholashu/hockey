@@ -1,0 +1,51 @@
+<% provide(:title, "Sign up") %>
+<br><br>
+<div class="card radius shadowDepth1">
+          <div class="card__content card__padding">
+            <div class="card__meta">
+              
+            </div>
+              <article class="card__article">
+                <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                  <%= devise_error_messages! %>
+
+                 <div class="field">
+                    <%= f.label :name %><br />
+                    <%= f.text_field :name %>
+                  </div>
+
+                  <div class="field">
+                    <%= f.label :email %><br />
+                    <%= f.email_field :email, autofocus: true %>
+                  </div>
+
+                  <div class="field">
+                    <%= f.label :password %>
+                    <% if @validatable %>
+                    <em>(<%= @minimum_password_length %> characters minimum)</em>
+                    <% end %><br />
+                    <%= f.password_field :password, autocomplete: "off" %>
+                  </div>
+
+                  <div class="field">
+                    <%= f.label :password_confirmation %><br />
+                    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+                  </div>
+
+                  <div class="actions">
+                    <%= f.submit "Sign up" %>
+                  </div>
+                <% end %>
+
+                <%= render "devise/shared/links" %>
+</article>
+
+          </div>
+            <div class="card__action">
+              <div class="card__author">
+          <div class="card__author-content">
+                </div>
+              </div>
+          </div>
+          
+        </div>
