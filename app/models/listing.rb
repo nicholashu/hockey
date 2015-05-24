@@ -1,6 +1,7 @@
 
 
 class Listing < ActiveRecord::Base
+  belongs_to :category
   belongs_to :user
   validates :venue, presence: true
   validates :gamedate, presence: true
@@ -11,6 +12,7 @@ class Listing < ActiveRecord::Base
     self.created_by = user.id
     self.save!
   end
+
 
 
 

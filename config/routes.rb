@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 	get 'profile/show'
 
 	resources :listings, :profile
-
+	resources :groups
 	devise_for :users
 
 	root 'static#show'
