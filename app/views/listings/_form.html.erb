@@ -16,22 +16,28 @@
               <% end %>
 
               <div class="form-group">
-                <%= f.label :Venue %>
+                <%= f.label :Venue %>:
                 <%= f.text_field :venue, class: 'form-control' %>
               </div>
               <div class="form-group">
-                <%= f.label :Game_Date %><br>
+                <%= f.label :Group%>:<br>
+                <%= f.text_field :group, class: 'form-control' %>
+                </div>
+              <div class="form-group">
+                <%= f.label :Game_Date %>:<br>
                 <%= f.date_select :gamedate, class: 'form-control' %>
               </div>
                 <div class="form-group">
-                <%= f.label :Game_Time%><br>
+                <%= f.label :Game_Time%>:<br>
                 <%= f.time_select :gametime, class: 'form-control' %>
+                </div>
+
 
               <div class="take-button"> <%= f.submit class: 'btn btn-primary' %>
               
               <%= link_to 'Cancel', :back, class: 'btn btn-danger' %>
              <% end %>
-             </div>
+
               </div>
 
             </div>

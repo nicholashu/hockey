@@ -8,6 +8,7 @@
             </div>
               <article class="card__article">
                 <h2><%=@listing.venue%></h2>
+                <p><b>Group: </b><%= @listing.group %></p>
                 <p><b>Date: </b><%= @listing.gamedate.strftime("%e  %B %Y") %></p>
                 <p><b>Time: </b><%= @listing.gametime.to_formatted_s(:time) %></p>
 

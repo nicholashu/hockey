@@ -22,10 +22,12 @@
              gamedate: "2015-05-21",
              gametime:  "2015-05-21 19:00:00",
              created_by: 1,
+             group: "Men's Provision 3",
            )
 
         Listing.create!(venue:  "UWA Field #1",
              gamedate: "2015-03-21",
              gametime:  "2015-02-21 9:00:00",
              created_by: 3,
+             group: "Women's Provision 1",
            )
