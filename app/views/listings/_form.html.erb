@@ -20,8 +20,8 @@
                 <%= f.text_field :venue, class: 'form-control' %>
               </div>
               <div class="form-group">
-                <%= f.label :Group %>:
-                <%= f.text_field :group, class: 'form-control' %>
+                <%= f.label :Group %>:<br>
+                <%= f.collection_select(:group, Group.all, :id, :groupname) %>
               </div>
               <div class="form-group">
                 <%= f.label :Game_Date %>:<br>

@@ -1,6 +1,12 @@
 module ListingsHelper
 
 
+def group_name(group)
+	name = Group.find(group)
+	name = name.groupname
+end
+
+
 #returns user
 def get_user(user)
   		user = User.find(user)
