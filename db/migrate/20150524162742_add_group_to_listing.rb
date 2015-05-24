@@ -1,5 +1,5 @@
 class AddGroupToListing < ActiveRecord::Migration
   def change
-  	    add_column :Listings, :group, :string
+  	    add_column :listings, :group, :string
   end
 end
