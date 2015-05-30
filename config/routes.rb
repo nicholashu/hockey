@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
 	resources :listings, :profile
 	resources :groups
-	devise_for :users, class_name: 'FormUser'
+	devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
 
 	root 'static#show'
 	get "myprofile" => "profile#profile", :as => :myprofile
