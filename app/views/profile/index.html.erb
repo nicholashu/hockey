@@ -3,7 +3,10 @@
 <div class="card radius shadowDepth1">
           <div class="card__content card__padding">
               <article class="card__article">
-             <h2> <%= image_tag gravatar_url(current_user) %>
+             <h2> 
+              <% if current_user.image? %>
+                <%= image_tag current_user.image %>
+              <% end %>
                 <%= current_user.name %></h2>
                 <p><%= current_user.email %></p>
                 <%="Rating:  #{current_user.rating.to_s}" unless current_user.rating == nil %></p>
