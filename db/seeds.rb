@@ -11,6 +11,7 @@
              password_confirmation: "iamsmart",
              admin: false,
            )
+    
       Listing.create!(venue:  "UWA Field #2",
              gamedate: "2015-05-21",
              gametime:  "2015-05-21 19:00:00",

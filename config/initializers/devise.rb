@@ -4,13 +4,16 @@ Devise.setup do |config|
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
-  config.secret_key = '05f6d3ab2135a6fb53f0ab47c190faf4f4bb9191dbb7a25acb192154d676f0e8135c447e86b059f7c9f5ba2ac4a9c0410c016d0626de085e642be86d7a1ceb74'
+  # Devise will use the `secret_key_base` on Rails 4+ applications as its `secret_key`
+  # by default. You can change it below and use your own secret key.
+  # config.secret_key = 'b179c54defbb720c71bca980663f66371813e5a28c92da5d1e9d94a7ddf466e064a2a0be8938d7b024394722cf4ba62d3674b8889be9a40ea99cf8e839e0c9e3'
+
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
   config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
-config.omniauth :facebook, ENV['672295632902509'], ENV['af82bd7bd791543a6caa85542531d4f2'], scope: "email"
+
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
 
@@ -19,7 +22,8 @@ config.omniauth :facebook, ENV['672295632902509'], ENV['af82bd7bd791543a6caa8554
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
   require 'devise/orm/active_record'
-
+  require "omniauth-facebook"
+  config.omniauth :facebook, "672942406171165", "fcfc2d4abb41617306de618400d263b3"
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
   # just :email. You can configure it to use [:username, :subdomain], so for
@@ -28,7 +32,7 @@ config.omniauth :facebook, ENV['672295632902509'], ENV['af82bd7bd791543a6caa8554
   # session. If you need permissions, you should implement that in a before filter.
   # You can also supply a hash where the value is a boolean determining whether
   # or not authentication should be aborted when the value is not present.
-  # config.authentication_keys = [ :email ]
+  # config.authentication_keys = [:email]
 
   # Configure parameters from the request object used for authentication. Each entry
   # given should be a request method and it will automatically be passed to the
@@ -40,12 +44,12 @@ config.omniauth :facebook, ENV['672295632902509'], ENV['af82bd7bd791543a6caa8554
   # Configure which authentication keys should be case-insensitive.
   # These keys will be downcased upon creating or modifying a user and when used
   # to authenticate or find a user. Default is :email.
-  config.case_insensitive_keys = [ :email ]
+  config.case_insensitive_keys = [:email]
 
   # Configure which authentication keys should have whitespace stripped.
   # These keys will have whitespace before and after removed upon creating or
   # modifying a user and when used to authenticate or find a user. Default is :email.
-  config.strip_whitespace_keys = [ :email ]
+  config.strip_whitespace_keys = [:email]
 
   # Tell if authentication through request.params is enabled. True by default.
   # It can be set to an array that will enable params authentication only for the
@@ -96,7 +100,7 @@ config.omniauth :facebook, ENV['672295632902509'], ENV['af82bd7bd791543a6caa8554
   config.stretches = Rails.env.test? ? 1 : 10
 
   # Setup a pepper to generate the encrypted password.
-  # config.pepper = '113a6e1bc3620b63baccd6eea0b7796db39d3ba18e544a1cb91f23eb861467ef7113743929aaa0f3a41705e111cf44782472b66d2f8b75a4ad09969cd8eb09ae'
+  # config.pepper = '02af2bae202c39d559615cbf59e1453688f4bf9e1245812fed85ecc775af221201b1c4699002269741a876c4985a9ebbd56f6804452b6860f4354c874528475a'
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
@@ -121,7 +125,7 @@ config.omniauth :facebook, ENV['672295632902509'], ENV['af82bd7bd791543a6caa8554
   config.reconfirmable = true
 
   # Defines which key will be used when confirming an account
-  # config.confirmation_keys = [ :email ]
+  # config.confirmation_keys = [:email]
 
   # ==> Configuration for :rememberable
   # The time the user will be remembered without asking for credentials again.
@@ -139,7 +143,7 @@ config.omniauth :facebook, ENV['672295632902509'], ENV['af82bd7bd791543a6caa8554
 
   # ==> Configuration for :validatable
   # Range for password length.
-  config.password_length = 8..128
+  config.password_length = 8..72
 
   # Email regex used to validate email formats. It simply asserts that
   # one (and only one) @ exists in the given string. This is mainly
@@ -161,7 +165,7 @@ config.omniauth :facebook, ENV['672295632902509'], ENV['af82bd7bd791543a6caa8554
   # config.lock_strategy = :failed_attempts
 
   # Defines which key will be used when locking and unlocking an account
-  # config.unlock_keys = [ :email ]
+  # config.unlock_keys = [:email]
 
   # Defines which strategy will be used to unlock an account.
   # :email = Sends an unlock link to the user email
@@ -183,12 +187,16 @@ config.omniauth :facebook, ENV['672295632902509'], ENV['af82bd7bd791543a6caa8554
   # ==> Configuration for :recoverable
   #
   # Defines which key will be used when recovering the password for an account
-  # config.reset_password_keys = [ :email ]
+  # config.reset_password_keys = [:email]
 
   # Time interval you can reset your password with a reset password key.
   # Don't put a too small interval or your users won't have the time to
   # change their passwords.
   config.reset_password_within = 6.hours
+
+  # When set to false, does not sign a user in automatically after their password is
+  # reset. Defaults to true, so a user is signed in automatically after a reset.
+  # config.sign_in_after_reset_password = true
 
   # ==> Configuration for :encryptable
   # Allow you to use another encryption algorithm besides bcrypt (default). You can use
@@ -252,14 +260,7 @@ config.omniauth :facebook, ENV['672295632902509'], ENV['af82bd7bd791543a6caa8554
   # The router that invoked `devise_for`, in the example above, would be:
   # config.router_name = :my_engine
   #
-  # When using omniauth, Devise cannot automatically set Omniauth path,
+  # When using OmniAuth, Devise cannot automatically set OmniAuth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
-
-
-
-require "omniauth-facebook"
-config.omniauth :facebook, "672942406171165", "fcfc2d4abb41617306de618400d263b3"
-
-
 end
