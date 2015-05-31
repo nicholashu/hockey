@@ -11,7 +11,6 @@
                 <p><%= current_user.email %></p>
                 <%="Rating:  #{current_user.rating.to_s}" unless current_user.rating == nil %></p>
               </article>
-
           </div>
             <div class="card__action">
               <div class="card__author">
@@ -22,3 +21,5 @@
           </div>
         </div>
 <br>
+
+  <%= render partial: 'list', locals: { listings: @listings } %>
