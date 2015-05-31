@@ -23,8 +23,14 @@
                 </div>
             <% if is_creator?(@listing,  current_user) %>
              <%= link_to 'Edit', edit_listing_path(@listing), class: 'btn btn-default take-button' %>   
-              <%= link_to 'Destroy', @listing, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger take-button' %>
-              <%end%>
+              <%= link_to 'Delete', @listing, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger take-button' %>
+              
+              <%= form_for @listing do |f| %>
+                <%= f.hidden_field :confirmed, value: true %>
+                <div class="take-button"><%= f.submit 'Pay' , class: 'belize flat-button' %></div>
+              <% end %>
+
+            <%end%>
               </div>
           </div>
           

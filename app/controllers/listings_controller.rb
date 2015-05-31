@@ -53,8 +53,8 @@ end
   # PATCH/PUT /listings/1.json
   def update
     respond_to do |format|
-      if @listing.update(listing_params)
-        format.html { redirect_to @listing, notice: 'Listing was successfully taken.' }
+     if @listing.update(listing_params)
+        format.html { redirect_to @listing, notice: 'Listing has been updated.' }
         format.json { render :show, status: :ok, location: @listing }
       else
         format.html { render :edit }
@@ -84,6 +84,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
-      params.require(:listing).permit(:venue, :gamedate, :gametime, :taken_by, :group)
+      params.require(:listing).permit(:venue, :gamedate, :gametime, :taken_by, :group, :confirmed)
     end
 end

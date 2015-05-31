@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150530203604) do
+ActiveRecord::Schema.define(version: 20150531003951) do
 
   create_table "groups", force: :cascade do |t|
     t.string "groupname"
@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 20150530203604) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.boolean  "confirmed",  default: false
+    t.string   "gps"
   end
 
   create_table "users", force: :cascade do |t|
