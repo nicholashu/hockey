@@ -1,4 +1,5 @@
-My Schedule:
+<h3 class="mylistings">My Schedule</h3>
+<br>
 <% @listings.each do |listing| %>
   <% if is_booker?(listing, current_user) %>
     <div class="card radius shadowDepth1">
@@ -50,7 +51,8 @@ My Schedule:
   <% end %>
   <% end %>
 
-My Listings: 
+<h3 class="mylistings">My Listings</h3>
+<br>
 <% @listings.each do |listing| %>
   <% if is_creator?(listing, current_user) %>
     <div class="card radius shadowDepth1">
