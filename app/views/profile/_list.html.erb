@@ -1,53 +1,45 @@
-<h3 class="mylistings">My Schedule</h3>
+<h4 class="mylistings">My Schedule</h3>
 <br>
 <% @listings.each do |listing| %>
   <% if is_booker?(listing, current_user) %>
-    <div class="card radius shadowDepth1">
-      <div class="card__content card__padding">
-        <div class="card__meta">
+        <% @listings.each do |listing| %>
+<div class="container">
+          <div class="row">
+                  <div class="col s12">
+                          <div class="card">
+                                  <div class="card-content">
+                                          <span class="card-title"><%= link_to listing.venue, listing %></span>
+                                          <article>
+                                          <% if listing.group != nil %>
+                                          <p><b>Group: </b><%= group_name(listing.group)%></p>
+                                          <%end%>
+                                          <p><b>Date: </b><%= listing.gamedate.strftime("%e  %B %Y") %></p>
+                                          <p><b>Time: </b><%= listing.gametime.to_formatted_s(:time) %></p>
+                                          </article>
+                                  </div>
+                                  <div class="card-action white-links">
+                                          <div class="s12 m6">
+                                                  <p><img src="<%= gravatar_url(get_user(listing.created_by)) %>" alt="user" class="circle">
+                                                  Created by <%= link_to users_name(listing.created_by), profile_index_path, class: 'blue-text text-darken-1' %></p>
+                                          </div>
+                                          <% if is_creator?(listing,  current_user) %>
+                                                  <div class="right s12 m6"><%= link_to 'Edit Job', listing, class: 'waves-effect waves-light btn white-text cardbutton'  %></div>
+                                          <% elsif is_booked?(listing)%>
+                                                    <%if is_booker?(listing, current_user) %>
+                                                          <div class="right s12 m6"><%= link_to 'Confirmed', listing, class: 'btn disabled black-text cardbutton' %></div>
+                                                          <%else%>
+                                                          <div class="right s12 m6"><%= link_to 'Unavailable', listing, class: 'btn disabled cardbutton' %></div>               
+                                          <%end%>
+                                          <%else%>
+                                                  <div class="right s12 m6"><%= link_to "Reserve", reserve_listing_path(listing.id), :method => :put, class: 'waves-effect waves-light btn white-text cardbutton'  %></div>
+                                          <%end%>
+                                  </div>
+                          </div>
+                  </div>
+          </div>
+</div>
+                  <% end %>
 
-        <% if is_admin?(current_user)%>
-         <div class="delete"><%= button_to "Delete", listing, :method => :delete, class: ' take-button'  %></div>
-        <%end%>
-
-        </div>
-        <article class="card__article">
-        <h2><%= link_to listing.venue, listing %></h2>
-        <% if listing.group != nil %>
-          <p><b>Group: </b><%= group_name(listing.group)%></p>
-        <%end%>
-        <p><b>Date: </b><%= listing.gamedate.strftime("%e  %B %Y") %></p>
-        <p><b>Time: </b><%= listing.gametime.to_formatted_s(:time) %></p>
-        </article>
-        </div>
-
-        <div class="card__action">
-          <div class="card__author">
-           
-            <div class="card__author-content">
-              <img src="<%= gravatar_url(get_user(listing.created_by)) %>" alt="user">
-
-              <div class="card__author-content">
-              <p>Created by <%= link_to users_name(listing.created_by), profile_index_path %></p>
-              </div>
-
-            </div>
-            <% if is_creator?(listing,  current_user) %>
-                  <div class="take-button"><%= link_to 'Edit Job', listing, class: 'belize flat-button' %></div>
-            <% elsif is_booked?(listing)%>
-                <%if is_booker?(listing, current_user) %>
-                  <div class="take-button pomegranate flat-button'">Confirmed</div>
-                <%else%>
-                    <div class="take-button"><%= link_to 'Unavailable', listing, class: 'midnight-blue flat-button' %></div>               
-              <%end%>
-            <%else%>
-            <div class="take-button"><%= link_to "Reserve", reserve_listing_path(listing.id), :method => :put, class: 'green-sea flat-button' %></div>
-            <%end%>
-        </div>
-
-        </div>
-      </div>
-    <br>
   <% end %>
   <% end %>
 

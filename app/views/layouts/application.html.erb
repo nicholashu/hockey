@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
     <meta name="description" content="">
     <title>Whistlers</title>
     <link rel="shortcut icon" href="favicon.ico">
@@ -13,26 +13,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="container-fluid">
-    <nav class="navbar navbar-default nogutter" role="navigation">
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <%= link_to root_path, class: 'navbar-brand' do %>
-            <h2><%= yield(:title) %></h2>
-          <% end %>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav navbar-right">
-            <% if user_signed_in? %>
+  <!-- Dropdown Structure 
+  <ul id="dropdown1" class="dropdown-content">
+    <li><a href="#!">one</a></li>
+    <li><a href="#!">two</a></li>
+    <li class="divider"></li>
+    <li><a href="#!">three</a></li>
+  </ul>-->
+  <nav>
+    <div class="nav-wrapper">
+      <%= link_to yield(:title), root_path, :class => 'brand-logo' %>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+      <ul class="right hide-on-med-and-down">
+        <% if user_signed_in? %>
             <li>
                 <%= link_to current_user.name, profile_index_path %>
             </li>
@@ -54,10 +47,41 @@
               <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
               </li>
             <% end %>
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </nav>
+        <!-- Dropdown Trigger
+        <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Dropdown<i class="mdi-navigation-arrow-drop-down right"></i></a></li> -->
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+       <% if user_signed_in? %>
+            <li>
+                <%= link_to current_user.name, profile_index_path %>
+            </li>
+            <li>
+              <%= link_to 'New', new_listing_path %>
+            <li> 
+            <li>
+              <%= link_to "Listings", listings_path %>
+            </li>
+
+            <li>
+               <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+            </li>
+            <% else %>
+            <li>
+              <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %>
+            </li> 
+            <li>
+              <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+              </li>
+            <% end %>
+      </ul>
+    </div>
+  </nav>
+
+
+
+
+
+
 <% if notice %>
   <p class="alert alert-success"><%= notice %></p>
 <% end %>
@@ -65,12 +89,16 @@
   <p class="alert alert-danger"><%= alert %></p>
 <% end %>
     <%= yield %>
-  </div>
 </body>
         
-    </section><!-- main -->
-    <script src="<%= asset_path 'jquery.js' %>"></script>
-    <script src="<%= asset_path 'library.js' %>"></script>
-    <script src="<%= asset_path 'script.js' %>"></script>
-    <script src="<%= asset_path 'retina.js' %>"></script>
+ </section><!-- main -->
+
+<script>
+
+$( document ).ready(function(){
+      $(".button-collapse").sideNav();
+})
+
+</script>
+
 </html>

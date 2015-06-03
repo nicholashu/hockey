@@ -1,10 +1,13 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-@import "scaffolds";
+@import "materialize/components/color";
+$primary-color: color("teal", "darken-2") !default;
+@import 'materialize';
+//@import "scaffolds";
 @import "listing";
 @import "static";
-@import "profile";
+//@import "profile";
 
 
 .navbar-brand h2 {
@@ -12,3 +15,6 @@
 	color: white;
 }
 
+body {
+	background-color: #eee;
+}
