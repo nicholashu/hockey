@@ -42,9 +42,13 @@
               <%else%>
                   <div class="take-button"><%= link_to 'Unavailable', listing, class: 'midnight-blue flat-button' %></div>               
             <%end%>
-          <%else%>
-          <div class="take-button"><%= link_to "Reserve", reserve_listing_path(listing.id), :method => :put, class: 'green-sea flat-button' %></div>
-          <%end%>
+            <%else%>
+            <div class="take-button"><%= link_to "Reserve", reserve_listing_path(listing.id), :method => :put, class: 'green-sea flat-button' %></div>
+
+              <% if listing.gps != nil %>
+                <!-- INSERT GMAPS PIN HERE BASED ON TABLE DATA -->
+              <%end%>
+            <%end%>
       </div>
 
       </div>
