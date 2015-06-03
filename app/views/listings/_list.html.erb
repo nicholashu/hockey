@@ -21,7 +21,7 @@
             <div class="card-action white-links">
               <div class="s12 m6">
                   <p><img src="<%= gravatar_url(get_user(listing.created_by)) %>" alt="user" class="circle">
-                  Created by <%= link_to users_name(listing.created_by), profile_index_path, class: 'blue-text text-darken-1' %></p>
+                  Created by <%= link_to users_name(listing.created_by),user_path(listing.created_by), class: 'blue-text text-darken-1' %></p>
               </div>
                   <% if is_creator?(listing,  current_user) %>
                   <div class="right s12 m6"><%= link_to 'Edit Job', listing, class: 'waves-effect waves-light btn white-text cardbutton'  %></div>
@@ -29,7 +29,7 @@
                   <%if is_booker?(listing, current_user) %>
                   <div class="right s12 m6"><%= link_to 'Confirmed', listing, class: 'btn disabled black-text cardbutton' %></div>
                   <%else%>
-                  <div class="right s12 m6"><%= link_to 'Unavailable', listing, class: 'btn disabled cardbutton' %></div>               
+                  <div class="right s12 m6"><%= link_to 'Unavailable', listing, class: 'btn disabled cardbutton black-text' %></div>               
                   <%end%>
                   <%else%>
                   <div class="right s12 m6"><%= link_to "Reserve", reserve_listing_path(listing.id), :method => :put, class: 'waves-effect waves-light btn white-text cardbutton'  %></div>

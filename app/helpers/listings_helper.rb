@@ -20,6 +20,7 @@ def users_name(user)
 end
 
 
+
 #checks is listed post was created by current user
 def is_creator?(listing, user)
 		if listing.created_by == user.id

@@ -7,8 +7,8 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
 
 def current_account
-@iduser = session[:user_id]
-@current_account ||= Account.find(@iduser) if @iduser
+	@iduser = session[:user_id]
+	@current_account ||= Account.find(@iduser) if @iduser
 end
 
 
