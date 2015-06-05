@@ -1,11 +1,14 @@
 <% provide(:title, "Whistlers") %>
-
         <div class="promo teal darken-1">
         <section class="container valign-wrapper">
                 <div class="row">
                     <div class="col s12 l6">
                         <h1>WHISTLERS FOR HIRE</h1>
-                        <p><%= link_to "Sign up", new_user_registration_path, :class => 'waves-effect waves-light btn-large'  %></a> &nbsp;  Learn more</p> 
+                        <p><%= link_to "Sign up", new_user_registration_path, :class => 'waves-effect waves-light btn-large'  %></a> &nbsp;  
+                     
+                        </p> 
+                        
+
                         </div> 
                  <div class="col s12 l6">
                 <img src="<%=  asset_path 'Hockey_Stick.png' %>" class="responsive-img">
@@ -15,11 +18,9 @@
     <div>
 
 
-        <!-- for the learn more 
-                <p>It's that exciting time of the year where hockey is up and about yet again! But with the buzz of a new season comes the inevitable and dreaded umpiring bye…</p>
+<script>
+        $(document).ready(function(){
+            $('.tooltipped').tooltip({delay: 50});
 
-                <p>Fear not! Whether you’re someone who doesn’t want to spend their weekend off getting abuse from a 'know-it-all' for missing a foot or you’re a student who wants to pocket some easy extra cash... This is the site for you!</p>
-            </div>
-
-            wrap -->
-
+          });
+    </script>
