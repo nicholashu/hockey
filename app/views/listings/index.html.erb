@@ -1,9 +1,9 @@
 <div class="container">
 
 <% provide(:title, "Listings") %>
-		 <%= link_to ' ', new_listing_path, class: "btn-floating btn-large waves-effect waves-light red  mdi-content-add" %>
 
-
+ <%= link_to ' ', new_listing_path, class: "btn-floating btn-large waves-effect waves-light red  mdi-content-add" %>
+<br>
  <%= render partial: 'list', locals: { listings: @listings } %>
 
 </div>
